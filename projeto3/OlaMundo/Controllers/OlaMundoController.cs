@@ -19,13 +19,12 @@ namespace OlaMundo.Controllers
 
         //método get
         [HttpGet]
-        //padrão de declaração de método:
-        //visibilidade ou nivel de acesso
-        //retorno
+        //padrão de declaração de método: visibilidade ou nivel de acesso e retorno
         public OlaMundo ObterMensagem()
         {
            var retorno = new OlaMundo();  //instanciar a classe
-           retorno.Mensagem = "Olá mundo - Essa é a minha primeira Web API!";
+           retorno.Mensagem = "Olá mundo - Essa é a minha primeira Web API!" +
+                " Integração do front com o back";
            return retorno;
         }
     }

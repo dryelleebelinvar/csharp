@@ -25,6 +25,7 @@ namespace OlaMundo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors();  //questão de segurança da api, política de cors
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +39,10 @@ namespace OlaMundo
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(  //questão de segurança da api, política de cors
+                options => options.WithOrigins("*").AllowAnyMethod()  //* = todo mundo pode usar essa api
+                );
 
             app.UseEndpoints(endpoints =>
             {
