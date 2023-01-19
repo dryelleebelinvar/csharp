@@ -1,0 +1,6 @@
+C:\Users\Dryelle Ebelin\Documents\dryelleebelinvar\csharp\projeto4\WebApiPessoa\obj\Debug\netcoreapp3.1\WebApiPessoa.csproj.AssemblyReference.cache
+C:\Users\Dryelle Ebelin\Documents\dryelleebelinvar\csharp\projeto4\WebApiPessoa\obj\Debug\netcoreapp3.1\WebApiPessoa.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dryelle Ebelin\Documents\dryelleebelinvar\csharp\projeto4\WebApiPessoa\obj\Debug\netcoreapp3.1\WebApiPessoa.AssemblyInfoInputs.cache
+C:\Users\Dryelle Ebelin\Documents\dryelleebelinvar\csharp\projeto4\WebApiPessoa\obj\Debug\netcoreapp3.1\WebApiPessoa.AssemblyInfo.cs
+C:\Users\Dryelle Ebelin\Documents\dryelleebelinvar\csharp\projeto4\WebApiPessoa\obj\Debug\netcoreapp3.1\WebApiPessoa.csproj.CoreCompileInputs.cache
+C:\Users\Dryelle Ebelin\Documents\dryelleebelinvar\csharp\projeto4\WebApiPessoa\obj\Debug\netcoreapp3.1\WebApiPessoa.MvcApplicationPartsAssemblyInfo.cache
