@@ -7,7 +7,7 @@ namespace WebApiPessoa
     {
        public string Nome { get; set; }
 
-       public DateAndTime DataNascimento { get; set; }
+       public DateTime DataNascimento { get; set; }
 
        public decimal Altura { get; set; }
 

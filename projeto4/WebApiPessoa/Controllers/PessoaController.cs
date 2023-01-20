@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace WebApiPessoa.Controllers
 {
@@ -16,14 +16,15 @@ namespace WebApiPessoa.Controllers
 
         }
 
-        [HttpPost]  //método
+        //método
+        [HttpPost]
 
         public PessoaResponse ProcessarInformacoesPessoa([FromBody] PessoaRequest request) //PessoaResponse = o que a api vai responder //ProcessarInformacoesPessoa() = nome do método //[FromBody] = vem do body //PessoaRequest = classe = o que vem do body //request = nome da váriavel, nome do parâmetro
         {
             var anoAtual = DateTime.Now.Year;
             var idade = anoAtual - request.DataNascimento.Year;
 
-            var imc = Math.Round(request.Peso / (request.Altura * request.Altura), 1);
+            var imc = Math.Round(request.Peso / (request.Altura * request.Altura), 2);
 
             var classificacao = "";
             if (imc < (decimal)18.5)
@@ -75,7 +76,7 @@ namespace WebApiPessoa.Controllers
             var dolar = (decimal)5.15;
             var saldoDolar = Math.Round(request.Saldo / dolar, 2);
 
-            //instânciar objeto classificacao  //resposta
+            //instânciar objeto
             var resposta = new PessoaResponse();  
             resposta.SaldoDolar = saldoDolar;
             resposta.Aliquota = aliquota;
