@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <title>Dados pessoais</title>
+</head>
+
+<body>
+    <h1>Integração do front com o back</h1>
+    <h1>Informações pessoais</h1>
+
+    <label for="txt_nome">Nome</label><br>
+    <input type="text" id="txt_nome" placeholder="Digite o nome"><br><br>
+    <label for="txt_data">Data de nascimento</label><br>
+    <input type="date" id="txt_data"><br><br>
+    <label for="txt_altura">Altura</label><br>
+    <input type="number" id="txt_altura" placeholder="Digite a altura"><br><br>
+    <label for="txt_peso">Peso</label><br>
+    <input type="number" id="txt_peso" placeholder="Digite o peso"><br><br>
+    <label for="txt_salario">Salário</label><br>
+    <input type="number" id="txt_salario" placeholder="Digite o salário"><br><br>
+    <label for="txt_saldo">Saldo</label><br>
+    <input type="number" id="txt_saldo" placeholder="Digite o saldo"><br><br>
+
+    <button onclick="chamarApiPessoa()">Chamar api</button><br>
+
+    <h2>Resultados</h2>
+    <h2 id="resultado_nome"></h2>
+    <h2 id="resultado_idade"></h2>
+    <h2 id="resultado_imc"></h2>
+    <h2 id="resultado_classificacao"></h2>
+    <h2 id="resultado_inss"></h2>
+    <h2 id="resultado_aliquota"></h2>
+    <h2 id="resultado_salarioLiquido"></h2>
+    <h2 id="resultado_saldoDolar"></h2>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
