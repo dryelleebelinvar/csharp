@@ -1,15 +1,28 @@
 {
   "version": 2,
-  "dgSpecHash": "RGu5EWtF5LgppKgQfnJ/6YWqvyYuj9wE3UenKrbgGz9Gke7A1inzHXb7GbcwoN39ae9Zf5Vz2fPyf1cIA0r19A==",
+  "dgSpecHash": "QiD0CCPiYCc0C+iL/F1SnR0ou6kWY46QlCmR0VeC0s2SvLjUnvRdDmV9IlsETT6CO3KslFasdA08qDemY8q+zQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dryelle Ebelin\\Documents\\dryelleebelinvar\\csharp\\projeto4\\WebApiPessoa\\WebApiPessoa.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.26.0\\microsoft.identitymodel.abstractions.6.26.0.nupkg.sha512",
+    "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.26.0\\microsoft.identitymodel.jsonwebtokens.6.26.0.nupkg.sha512",
+    "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\microsoft.identitymodel.logging\\6.26.0\\microsoft.identitymodel.logging.6.26.0.nupkg.sha512",
+    "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.26.0\\microsoft.identitymodel.tokens.6.26.0.nupkg.sha512",
+    "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\microsoft.openapi\\1.1.4\\microsoft.openapi.1.1.4.nupkg.sha512",
     "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\swashbuckle.aspnetcore\\5.0.0\\swashbuckle.aspnetcore.5.0.0.nupkg.sha512",
     "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.0.0\\swashbuckle.aspnetcore.swagger.5.0.0.nupkg.sha512",
     "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.0.0\\swashbuckle.aspnetcore.swaggergen.5.0.0.nupkg.sha512",
-    "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.0.0\\swashbuckle.aspnetcore.swaggerui.5.0.0.nupkg.sha512"
+    "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.0.0\\swashbuckle.aspnetcore.swaggerui.5.0.0.nupkg.sha512",
+    "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.26.0\\system.identitymodel.tokens.jwt.6.26.0.nupkg.sha512",
+    "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
+    "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
+    "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\system.text.encodings.web\\4.7.2\\system.text.encodings.web.4.7.2.nupkg.sha512",
+    "C:\\Users\\Dryelle Ebelin\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
   ],
   "logs": []
 }

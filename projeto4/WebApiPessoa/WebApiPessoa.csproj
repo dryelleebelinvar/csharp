@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.26.0" />
   </ItemGroup>
 
 
