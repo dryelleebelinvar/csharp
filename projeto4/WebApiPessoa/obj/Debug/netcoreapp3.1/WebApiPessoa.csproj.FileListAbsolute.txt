@@ -22,3 +22,11 @@ C:\Users\Dryelle Ebelin\Documents\dryelleebelinvar\csharp\projeto4\WebApiPessoa\
 C:\Users\Dryelle Ebelin\Documents\dryelleebelinvar\csharp\projeto4\WebApiPessoa\obj\Debug\netcoreapp3.1\WebApiPessoa.dll
 C:\Users\Dryelle Ebelin\Documents\dryelleebelinvar\csharp\projeto4\WebApiPessoa\obj\Debug\netcoreapp3.1\WebApiPessoa.pdb
 C:\Users\Dryelle Ebelin\Documents\dryelleebelinvar\csharp\projeto4\WebApiPessoa\obj\Debug\netcoreapp3.1\WebApiPessoa.genruntimeconfig.cache
+C:\Users\Dryelle Ebelin\Documents\dryelleebelinvar\csharp\projeto4\WebApiPessoa\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Dryelle Ebelin\Documents\dryelleebelinvar\csharp\projeto4\WebApiPessoa\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Dryelle Ebelin\Documents\dryelleebelinvar\csharp\projeto4\WebApiPessoa\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Dryelle Ebelin\Documents\dryelleebelinvar\csharp\projeto4\WebApiPessoa\obj\Debug\netcoreapp3.1\WebApiPessoa.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Dryelle Ebelin\Documents\dryelleebelinvar\csharp\projeto4\WebApiPessoa\obj\Debug\netcoreapp3.1\WebApiPessoa.csproj.CopyComplete
+C:\Users\Dryelle Ebelin\Documents\dryelleebelinvar\csharp\projeto4\WebApiPessoa\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\Dryelle Ebelin\Documents\dryelleebelinvar\csharp\projeto4\WebApiPessoa\bin\Debug\netcoreapp3.1\WebApiPessoa.xml
+C:\Users\Dryelle Ebelin\Documents\dryelleebelinvar\csharp\projeto4\WebApiPessoa\obj\Debug\netcoreapp3.1\WebApiPessoa.xml

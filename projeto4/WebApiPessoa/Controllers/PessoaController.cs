@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
+using System;  //biblioteca, pacote de códigos
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,6 +15,15 @@ namespace WebApiPessoa.Controllers
         {
 
         }
+
+        //swagger
+
+        /// <summary>
+        /// Rota responsável por realizar o processamento de dados de uma pessoa
+        /// </summary>
+        /// <returns>Retorna os dados processados da pessoa</returns>
+        /// <response code="200">Retorna os dados processados com sucesso</response>
+        /// <response code="400">Erro de validação</response>
 
         //método
         [HttpPost]
