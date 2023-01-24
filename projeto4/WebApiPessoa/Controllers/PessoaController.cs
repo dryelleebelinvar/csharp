@@ -16,6 +16,8 @@ namespace WebApiPessoa.Controllers
 
         }
 
+        public decimal Altura { get; private set; }
+
         //swagger
 
         /// <summary>
@@ -25,17 +27,54 @@ namespace WebApiPessoa.Controllers
         /// <response code="200">Retorna os dados processados com sucesso</response>
         /// <response code="400">Erro de validação</response>
 
-        //método
         [HttpPost]
 
         public PessoaResponse ProcessarInformacoesPessoa([FromBody] PessoaRequest request) //PessoaResponse = o que a api vai responder //ProcessarInformacoesPessoa() = nome do método //[FromBody] = vem do body //PessoaRequest = classe = o que vem do body //request = nome da váriavel, nome do parâmetro
         {
+            var idade = CalcularIdade(request.DataNascimento);
+            var imc = CalcularImc(request.Peso, request.Altura);
+            var classificacao = CalcularClassificacao(imc);
+            var aliquota = CalcularAliquota(request.Salario);
+            var inss = CalcularInss(request.Salario, aliquota);
+            var salarioLiquido = CalcularSalarioLiquido(request.Salario, inss);
+            var saldoDolar = CalcularDolar(request.Saldo);
+
+            //instânciar objeto
+            var resposta = new PessoaResponse();  
+            resposta.SaldoDolar = saldoDolar;
+            resposta.Aliquota = aliquota;
+            resposta.SalarioLiquido = salarioLiquido;
+            resposta.Classificacao = classificacao;
+            resposta.Idade = idade;
+            resposta.Imc = imc;
+            resposta.Inss = inss;
+            resposta.Nome = request.Nome;
+            return resposta;
+        }
+
+        //métodos para refatoração
+        private int CalcularIdade(DateTime dataNascimento)
+        {
             var anoAtual = DateTime.Now.Year;
-            var idade = anoAtual - request.DataNascimento.Year;
+            var idade = anoAtual - dataNascimento.Year;
+            var mesAtual = DateTime.Now.Month;
+            if (mesAtual < dataNascimento.Month)
+            {
+                idade = idade - 1;
+            }
 
-            var imc = Math.Round(request.Peso / (request.Altura * request.Altura), 2);
+            return idade;
+        }
 
-            var classificacao = "";
+        private decimal CalcularImc(decimal peso, decimal altura)
+        {
+            return Math.Round(peso / (altura * altura), 2);
+        }
+
+        private string CalcularClassificacao(decimal imc)
+        {
+            var classificacao = ""; 
+
             if (imc < (decimal)18.5)
             {
                 classificacao = "Abaixo do peso ideal";
@@ -61,16 +100,21 @@ namespace WebApiPessoa.Controllers
                 classificacao = "Obesidade grau III";
             }
 
+            return classificacao;
+        }
+
+        private double CalcularAliquota(double salario)
+        {
             var aliquota = 7.5;
-            if (request.Salario <= 1212)
+            if (salario <= 1212)
             {
                 aliquota = 7.5;
             }
-            else if (request.Salario >= 1212.01 && request.Salario <= 2427.35)
+            else if (salario >= 1212.01 && salario <= 2427.35)
             {
                 aliquota = 9;
             }
-            else if (request.Salario >= 2427.36 && request.Salario <= 3641.03)
+            else if (salario >= 2427.36 && salario <= 3641.03)
             {
                 aliquota = 12;
             }
@@ -79,23 +123,27 @@ namespace WebApiPessoa.Controllers
                 aliquota = 14;
             }
 
-            var inss = (request.Salario * aliquota) / 100;
-            var salarioLiquido = request.Salario - inss;
+            return aliquota;
+        }
 
+        private double CalcularInss(double salario, double aliquota) 
+        {
+            var inss = (salario * aliquota) / 100;
+
+            return inss;
+        }
+
+        private double CalcularSalarioLiquido(double salario, double inss)
+        {
+            return salario - inss;
+        }
+
+        private decimal CalcularDolar(decimal saldo)
+        {
             var dolar = (decimal)5.15;
-            var saldoDolar = Math.Round(request.Saldo / dolar, 2);
+            var saldoDolar = Math.Round(saldo / dolar, 2);
 
-            //instânciar objeto
-            var resposta = new PessoaResponse();  
-            resposta.SaldoDolar = saldoDolar;
-            resposta.Aliquota = aliquota;
-            resposta.SalarioLiquido = salarioLiquido;
-            resposta.Classificacao = classificacao;
-            resposta.Idade = idade;
-            resposta.Imc = imc;
-            resposta.Inss = inss;
-            resposta.Nome = request.Nome;
-            return resposta;
+            return saldoDolar;
         }
     }
 }
