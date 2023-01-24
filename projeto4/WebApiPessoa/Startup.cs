@@ -12,6 +12,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;  //swagger //NuGet
 using System.Reflection;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
 
 namespace WebApiPessoa
 {
@@ -24,8 +27,13 @@ namespace WebApiPessoa
 
         public IConfiguration Configuration { get; }
 
+        public IConfiguration GetConfiguration()
+        {
+            return Configuration;
+        }
+
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddControllers();
             services.AddCors();
@@ -38,6 +46,30 @@ namespace WebApiPessoa
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
+
+            services.AddAuthentication
+                (JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = "var",
+                        ValidAudience = "var",
+                        IssuerSigningKey = new SymmetricSecurityKey
+                        (Encoding.UTF8.GetBytes("1c93a5c9-1b8d-4f3c-ba71-65954542cc4e"))
+                    };
+                });
+            services.AddAuthorization();
+        }
+
+        private SymmetricSecurityKey NewMethod()
+        {
+            return new SymmetricSecurityKey
+                                    (Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +81,8 @@ namespace WebApiPessoa
             }
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
