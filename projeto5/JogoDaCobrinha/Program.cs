@@ -62,7 +62,66 @@ void Renderizar()  //tela
 
 void TransladarCobra()
 {
+    var cabeça = coordenadasCobra[0];  //coordenadas da cabeça da cobra
+    var coordenadaRaboX = coordenadasCobra[^1].X;  //o último item edve acompanhar o penúltimo item
+    var coordenadaRaboY = coordenadasCobra[^1].Y;
 
+    for(int i = coordenadasCobra.Count - 1; i > 0; i--)
+    {
+        coordenadasCobra[i].X = coordenadasCobra[i - 1].X;
+        coordenadasCobra[i].Y = coordenadasCobra[i - 1].Y;
+    }
+
+    if(direcao is Direcao.Direita)
+    {
+        cabeça.X++;
+
+        if(cabeça.X > larguraTela -1)
+        {
+            cabeça.X = 0;
+        }
+    }
+    if (direcao is Direcao.Esquerda)
+    {
+        cabeça.X--;
+
+        if (cabeça.X < 0)
+        {
+            cabeça.X = larguraTela - 1;
+        }
+    }
+    if (direcao is Direcao.Cima)
+    {
+        cabeça.Y--;
+
+        if (cabeça.Y < 0)
+        {
+            cabeça.Y = alturaTela - 1;
+        }
+    }
+    if (direcao is Direcao.Baixo)
+    {
+        cabeça.Y++;
+
+        if (cabeça.Y > alturaTela -1)
+        {
+            cabeça.Y = 0;
+        }
+    }
+
+    if(tela[cabeça.X, cabeça.Y] == "*")
+    {
+        placar += random.Next(1, 10);
+        coordenadasCobra.Add(new Coordenada(coordenadaRaboX, coordenadaRaboY));
+        CriarComida();
+    }
+    if (tela[cabeça.X, cabeça.Y] == caractereCobra)
+    {
+        jogoRodando = false;
+        return;
+    }
+
+    AtualizarPosicaoCobra();
 }
 
 void LerTeclas()
@@ -110,9 +169,9 @@ void CriarComida()  //a comida inicia em um lugar aletório e quando a serpente 
 
 void CriarCobra()
 {
-    coordenadasCobra.Add(new Coordenada(7, 14));  //coordenada inicial da serpente
+    coordenadasCobra.Add(new Coordenada(9, 14));  //coordenada inicial da serpente
     coordenadasCobra.Add(new Coordenada(8, 14));  
-    coordenadasCobra.Add(new Coordenada(9, 14));
+    coordenadasCobra.Add(new Coordenada(7, 14));
 
     AtualizarPosicaoCobra();   //método que atualiza a posição da serpente na tela
 }
