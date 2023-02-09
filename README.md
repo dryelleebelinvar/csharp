@@ -7,4 +7,4 @@
 🖱 [W3schools - jQuery Tutorial](https://www.w3schools.com/jquery/)  
 🖱 [Swagger - Documentação da IBM](https://www.ibm.com/docs/pt-br/integration-bus/10.0?topic=apis-swagger)  
 🖱 [JSON Web Tokens](https://jwt.io/)  
-🖱 [GUID Generator](https://guidgenerator.com/online-guid-generator.aspx)  
+🖱 [GUID Generator](https://guidgenerator.com/online-guid-generator.aspx) 
