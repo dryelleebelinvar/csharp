@@ -13,7 +13,7 @@ namespace WebApiPessoa
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();  //bug
+            CreateHostBuilder(args).Build().Run(); 
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

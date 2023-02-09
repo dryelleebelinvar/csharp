@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;  //biblioteca, pacote de códigos
 using System.Collections.Generic;
@@ -28,6 +29,7 @@ namespace WebApiPessoa.Controllers
         /// <response code="400">Erro de validação</response>
 
         [HttpPost]
+        [Authorize]  //só continua se mandar o token
 
         public PessoaResponse ProcessarInformacoesPessoa([FromBody] PessoaRequest request) //PessoaResponse = o que a api vai responder //ProcessarInformacoesPessoa() = nome do método //[FromBody] = vem do body //PessoaRequest = classe = o que vem do body //request = nome da váriavel, nome do parâmetro
         {

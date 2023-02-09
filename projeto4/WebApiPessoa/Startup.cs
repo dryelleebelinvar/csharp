@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Swashbuckle.AspNetCore.Swagger;  //swagger //NuGet
+using Swashbuckle.AspNetCore.Swagger;  //swagger
 using System.Reflection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -27,13 +27,9 @@ namespace WebApiPessoa
 
         public IConfiguration Configuration { get; }
 
-        public IConfiguration GetConfiguration()
-        {
-            return Configuration;
-        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+        public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
             services.AddCors();
@@ -66,11 +62,6 @@ namespace WebApiPessoa
             services.AddAuthorization();
         }
 
-        private SymmetricSecurityKey NewMethod()
-        {
-            return new SymmetricSecurityKey
-                                    (Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]));
-        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -88,11 +79,6 @@ namespace WebApiPessoa
 
             app.UseCors(options => options.WithOrigins("*").AllowAnyMethod().AllowAnyHeader());
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-
             //swagger
             app.UseSwagger();
             app.UseSwaggerUI(opt =>
@@ -100,6 +86,13 @@ namespace WebApiPessoa
                 opt.SwaggerEndpoint("/swagger/v1/swagger.json", "TodoAPI V1");
                 opt.RoutePrefix = string.Empty;
             });
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
+            
         }
     }
 }

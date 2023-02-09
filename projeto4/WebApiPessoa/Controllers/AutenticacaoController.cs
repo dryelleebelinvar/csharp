@@ -26,7 +26,7 @@ namespace WebApiPessoa.Controllers
         }
 
         //método
-        public string GerarTokenJwt()
+        private string GerarTokenJwt() 
         {
             var issuer = "var";  //quem está emitindo o token
             var audience = "var";  //destinatário da api
