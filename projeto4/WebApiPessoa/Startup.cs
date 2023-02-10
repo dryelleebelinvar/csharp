@@ -15,6 +15,8 @@ using System.Reflection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
+using WebApiPessoa.Repository;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApiPessoa
 {
@@ -60,6 +62,9 @@ namespace WebApiPessoa
                     };
                 });
             services.AddAuthorization();
+
+            //banco de dados
+            services.AddDbContext<PessoaContext>(options => options.UseSqlServer("Server=DESKTOP-6A5AOHA\\SQLEXPRESS;Database=bancoDryelle;Trusted_Connection=True;"));
         }
 
 

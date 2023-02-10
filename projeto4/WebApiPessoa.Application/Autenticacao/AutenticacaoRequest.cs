@@ -1,4 +1,8 @@
-﻿namespace WebApiPessoa
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace WebApiPessoa.Application.Autenticacao
 {
     public class AutenticacaoRequest
     {
