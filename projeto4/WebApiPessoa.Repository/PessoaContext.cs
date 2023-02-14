@@ -13,9 +13,12 @@ namespace WebApiPessoa.Repository
 
         public DbSet<TUsuario> Usuarios { get; set; }
 
+        public DbSet<TPessoa> Pessoas { get; set; } 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TUsuario>().ToTable("tUsuario");
+            modelBuilder.Entity<TPessoa>().ToTable("tabPessoa");
         }
     }
 }

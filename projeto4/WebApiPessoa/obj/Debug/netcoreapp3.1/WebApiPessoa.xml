@@ -4,7 +4,7 @@
         <name>WebApiPessoa</name>
     </assembly>
     <members>
-        <member name="M:WebApiPessoa.Controllers.PessoaController.ProcessarInformacoesPessoa(WebApiPessoa.PessoaRequest)">
+        <member name="M:WebApiPessoa.Controllers.PessoaController.ProcessarInformacoesPessoa(WebApiPessoa.Application.Pessoa.PessoaRequest)">
             <summary>
             Rota responsável por realizar o processamento de dados de uma pessoa
             </summary>

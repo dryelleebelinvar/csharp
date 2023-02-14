@@ -1,8 +1,10 @@
-﻿using Microsoft.VisualBasic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace WebApiPessoa
+namespace WebApiPessoa.Application.Pessoa
 {
-    public class PessoaResponse  //o que nossa api vai responder
+    public class PessoaResponse
     {
         public string Nome { get; set; }
 
