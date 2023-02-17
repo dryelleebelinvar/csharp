@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using System;  //biblioteca, pacote de códigos
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using WebApiPessoa.Application.Pessoa;
 using WebApiPessoa.Repository;
@@ -35,10 +36,23 @@ namespace WebApiPessoa.Controllers
 
         public PessoaResponse ProcessarInformacoesPessoa([FromBody] PessoaRequest request) //PessoaResponse = o que a api vai responder //ProcessarInformacoesPessoa() = nome do método //[FromBody] = vem do body //PessoaRequest = classe = o que vem do body //request = nome da váriavel, nome do parâmetro
         {
+            var identidade = (ClaimsIdentity)HttpContext.User.Identity;
+            var usuarioId = identidade.FindFirst("usuarioId").Value;
+
             var pessoaService = new PessoaService(_context);
-            var pessoaResponse = pessoaService.ProcessarInformacoesPessoa(request);
+            var pessoaResponse = pessoaService.ProcessarInformacoesPessoa(request, Convert.ToInt32(usuarioId));
 
             return pessoaResponse;
+        }
+
+        [HttpGet]
+        [Authorize]
+        public List<PessoaHistoricoResponse> ObterHistoricoPessoas()
+        {
+            var pessoaService = new PessoaService(_context);
+            var pessoas = pessoaService.ObterHistoricoPessoas();
+
+            return pessoas;
         }
     }
 }

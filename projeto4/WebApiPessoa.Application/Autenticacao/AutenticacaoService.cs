@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using WebApiPessoa.Repository;
+using WebApiPessoa.Repository.Models;
 
 namespace WebApiPessoa.Application.Autenticacao
 {
@@ -20,7 +22,7 @@ namespace WebApiPessoa.Application.Autenticacao
             var usuario = _context.Usuarios.FirstOrDefault(x => x.usuario == request.UserName && x.senha == request.Password);  //
             if (usuario != null)
             {
-                var tokenString = GerarTokenJwt();
+                var tokenString = GerarTokenJwt(usuario);
                 return tokenString;
             }
             else
@@ -28,7 +30,7 @@ namespace WebApiPessoa.Application.Autenticacao
                 return null;
             }
         }
-        private string GerarTokenJwt()
+        private string GerarTokenJwt(TUsuario usuario)
         {
             var issuer = "var";  //quem está emitindo o token
             var audience = "var";  //destinatário da api
@@ -37,7 +39,12 @@ namespace WebApiPessoa.Application.Autenticacao
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
-            var token = new JwtSecurityToken(issuer: issuer, audience, expires: DateTime.Now.AddMinutes(60), signingCredentials: credentials);
+            var claims = new[]
+            {
+                new Claim("usuarioId", usuario.id.ToString())
+            };
+
+            var token = new JwtSecurityToken(issuer: issuer, claims: claims, audience: audience, expires: DateTime.Now.AddMinutes(60), signingCredentials: credentials);
             var tokenHandler = new JwtSecurityTokenHandler();
             var stringToken = tokenHandler.WriteToken(token);
             return stringToken;

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using WebApiPessoa.Repository;
@@ -14,7 +16,37 @@ namespace WebApiPessoa.Application.Pessoa
         {
             _context = context;
         }
-        public PessoaResponse ProcessarInformacoesPessoa(PessoaRequest request)
+
+        public List<PessoaHistoricoResponse> ObterHistoricoPessoas()
+        {
+            var pessoasDb = _context.Pessoas.ToList();
+            var pessoas = new List<PessoaHistoricoResponse>();
+
+            foreach (var item in pessoasDb)
+            {
+                pessoas.Add(new PessoaHistoricoResponse()
+                {
+                    Id = item.id,
+                    Nome = item.nome,
+                    DataNascimento = item.dataNascimento,
+                    Altura = item.altura,
+                    Peso = item.peso,
+                    Salario = Convert.ToDouble(item.salario),
+                    Saldo = item.saldo,
+                    Idade = item.idade,
+                    Imc = item.imc,
+                    Classificacao = item.classificacao,
+                    Inss = Convert.ToDouble(item.inss),
+                    Aliquota = Convert.ToDouble(item.aliquota),
+                    SalarioLiquido = Convert.ToDouble(item.salarioLiquido),
+                    SaldoDolar = item.saldoDolar,
+                    IdUsuario = item.idUsuario
+                });
+            }
+            return pessoas;
+        } 
+
+        public PessoaResponse ProcessarInformacoesPessoa(PessoaRequest request, int usuarioId)
         {
             var idade = CalcularIdade(request.DataNascimento);
             var imc = CalcularImc(request.Peso, request.Altura);
@@ -41,9 +73,9 @@ namespace WebApiPessoa.Application.Pessoa
                 classificacao = classificacao,
                 dataNascimento= request.DataNascimento,
                 idade = idade,
-                idUsuario = 1,
+                idUsuario = usuarioId,
                 imc = imc,
-                inss = Convert.ToDecimal(inss),
+                inss = Convert.ToDecimal(inss),  
                 nome = request.Nome,
                 peso = request.Peso,
                 salario = Convert.ToDecimal(request.Salario),
