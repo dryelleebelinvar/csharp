@@ -17,6 +17,51 @@ namespace WebApiPessoa.Application.Pessoa
             _context = context;
         }
 
+        public PessoaHistoricoResponse ObterHistoricoPessoa(int id)
+        {
+            var pessoaDb = _context.Pessoas.FirstOrDefault(x => x.id == id);
+            var pessoa = new PessoaHistoricoResponse()
+            {
+                Id = pessoaDb.id,
+                Nome = pessoaDb.nome,
+                DataNascimento = pessoaDb.dataNascimento,
+                Altura = pessoaDb.altura,
+                Peso = pessoaDb.peso,
+                Salario = Convert.ToDouble(pessoaDb.salario),
+                Saldo = pessoaDb.saldo,
+                Idade = pessoaDb.idade,
+                Imc = pessoaDb.imc,
+                Classificacao = pessoaDb.classificacao,
+                Inss = Convert.ToDouble(pessoaDb    .inss),
+                Aliquota = Convert.ToDouble(pessoaDb.aliquota),
+                SalarioLiquido = Convert.ToDouble(pessoaDb.salarioLiquido),
+                SaldoDolar = pessoaDb.saldoDolar,
+                IdUsuario = pessoaDb.idUsuario
+            };
+
+            return pessoa;
+        }
+        
+
+        public bool DeletarUsuario(int id)
+        {
+            try
+            {
+                var pessoaDb = _context.Pessoas.FirstOrDefault(xx => xx.id == id);
+                if (pessoaDb == null)
+                    return false;
+
+                _context.Pessoas.Remove(pessoaDb);
+                _context.SaveChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
         public List<PessoaHistoricoResponse> ObterHistoricoPessoas()
         {
             var pessoasDb = _context.Pessoas.ToList();

@@ -1,5 +1,5 @@
-function processar() //token
-{
+function login() 
+{ 
     var requestAutenticacao = {  //requisição
         "Username": $("#txt_usuario").val(),
         "Password": $("#txt_senha").val()
@@ -10,14 +10,27 @@ function processar() //token
         data: JSON.stringify(requestAutenticacao), 
         contentType: "application/json",
         dataType: "json",
-        success: function (response) {
-            processarDadosPessoa(response.token)
-            console.log(response.token)
+        success: function (response) { //entrar na página
+            var token = response.token;
+            window.localStorage.setItem('token', token);
+            window.location.href = './index.html';
         },
         error: function (request, message, error) {
             alert("Erro ao se autenticar!")
         }
     })
+}
+
+
+function verHistorico() 
+{
+    window.location.href = "./historico.html"
+}
+
+function processar()
+{
+   var token = window.localStorage.getItem('token'); 
+   processarDadosPessoa(token);
 }
 
 function processarDadosPessoa(token) 
@@ -30,9 +43,7 @@ function processarDadosPessoa(token)
         "Salario": parseFloat($("#txt_salario").val()),
         "Saldo": parseFloat($("#txt_saldo").val())
     }
-    //chamada backend
-    console.log(token)
-    $.ajax({
+    $.ajax({  //chamada backend
         url: "http://localhost:5438/Pessoa",
         type: "POST",
         data: JSON.stringify(request), 

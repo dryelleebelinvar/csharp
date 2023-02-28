@@ -7,6 +7,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using WebApiPessoa.Application.Pessoa;
+using WebApiPessoa.Application.Usuario;
 using WebApiPessoa.Repository;
 
 namespace WebApiPessoa.Controllers
@@ -53,6 +54,35 @@ namespace WebApiPessoa.Controllers
             var pessoas = pessoaService.ObterHistoricoPessoas();
 
             return pessoas;
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("{id}")]
+        public PessoaHistoricoResponse ObterHistoricoPessoa([FromRoute] int id)
+        {
+            var pessoaService = new PessoaService(_context);
+            var pessoa = pessoaService.ObterHistoricoPessoa(id);
+
+            return pessoa;
+        }
+
+
+        [HttpDelete]
+        [Route("{id}")]
+        public IActionResult DeletarHistoricoPessoa([FromRoute] int id)
+        {
+            var pessoaService = new PessoaService(_context);
+            var sucesso = pessoaService.DeletarUsuario(id);
+
+            if (sucesso == true)
+            {
+                return NoContent();
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
     }
 }

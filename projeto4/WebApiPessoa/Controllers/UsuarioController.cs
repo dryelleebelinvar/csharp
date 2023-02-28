@@ -47,7 +47,7 @@ namespace WebApiPessoa.Controllers
         }
 
         [HttpGet]
-        [Route("{id}")]
+        [Route("{id}")] //receber parâmetro na url
         public IActionResult ObterUsuario([FromRoute] int id)
         {
             var usuarioService = new UsuarioService(_context);
