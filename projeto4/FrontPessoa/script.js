@@ -31,6 +31,8 @@ function processar()
 {
    var token = window.localStorage.getItem('token'); 
    processarDadosPessoa(token);
+
+   window.location.href = "./index.html" 
 }
 
 function processarDadosPessoa(token) 

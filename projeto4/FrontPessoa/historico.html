@@ -8,10 +8,40 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./style.css">
     <title>Histórico</title>
+
+    <style>
+        body {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #table_pessoas {
+            width: 60%;
+            border-radius: 10px;
+        }
+        button {
+            background-color: #001e45;
+            border-radius: 10px;
+            height: 42px;
+            margin: 0 0 0 25px;
+            font-size: 16px;
+            width: 80%;
+            transition: all 0.5s ease-in;
+        }
+        button:hover {
+            background-color: #002657;
+        }
+        .botao-historico {
+            display: flex;
+            width: 90%;
+            margin-left: 15px;
+        }
+    </style>
 </head>
 
-<body>
-    <h1>Histórico de cálculos de pessoas</h1>
+<body style="overflow-x: hidden;">
+    <h1>Histórico dos cálculos das pessoas</h1>
 
     <table id="table_pessoas">
         <tr>
@@ -25,6 +55,10 @@
 </body>
 
 </html>
+
+
+
+
 
 <script>
     $(document).ready(function() {
@@ -47,9 +81,8 @@
             for (var i = 0; i < response.length; i ++) {
                 html += '<tr class="table-row">' + 
                     '<td>' + response[i].id + '<td>' +
-                    '<td>' + response[i].nome + '<td>' +
-                    '<td><button onClick="verDetalhes(' + response[i].id + ')">Ver detalhes</button></td>' +
-                    '<td><button onClick="deletarPessoa(' + response[i].id + ')" style="background-color: red;">Deletar</button></td>' +
+                    '<td">' + response[i].nome + '<td>' +
+                    '<td" class="botao-historico"><button onClick="verDetalhes(' + response[i].id + ')">Ver detalhes</button><button onClick="deletarPessoa(' + response[i].id + ')" style="background-color: red;">Deletar</button></td>' +
                     '</tr>';
             }
             $("#table_pessoas tr").first().after(html);

@@ -8,15 +8,61 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./style.css">
     <title>Login</title>
+
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        input {
+            width: 87%;
+            border: none;
+            font-size: 15px;
+            padding: 9px;
+            background: #464646;
+            border-radius: 8px;
+            margin-top: 7px;
+            margin-bottom: 25px;
+            outline: none;
+        }
+        .container-login {
+            width: 32vw;
+            height: 70vh;
+            background: #111111;
+            border-radius: 20px;
+            padding-left: 40px; 
+        }
+        .container-login > h1 {
+            margin-bottom: 40px;
+        }
+        button {
+            background-color: #001e45;
+            border-radius: 8px;
+            height: 48px;
+            margin-top: 30px;
+            margin: 25px 0 0 0;
+            font-size: 18px;
+            width: 90%;
+            transition: all 0.5s ease-in;
+        }
+        button:hover {
+            background-color: #002657;
+        }
+    </style>
 </head>
 
-<body>
-    <h1>Login</h1>
-    <label for="txt_usuario">Usuário</label>
-    <input type="text" id="txt_usuario" placeholder="Digite o usuário:">
-    <label for="txt_senha">Senha</label>
-    <input type="password" id="txt_senha" placeholder="Digite a senha:">
-    <button onclick="login()">Entrar</button>
+<body style="overflow-y: hidden; overflow-x: hidden;">
+    <div class="container-login">
+        <h1>Login</h1>
+        <label for="txt_usuario">Usuário</label>
+        <input type="text" id="txt_usuario" placeholder="Digite o usuário:">
+        <label for="txt_senha">Senha</label>
+        <input type="password" id="txt_senha" placeholder="Digite a senha:">
+        <button onclick="login()">Entrar</button>
+    </div>
 
     <script src="./script.js"></script>
 </body>

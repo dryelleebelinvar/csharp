@@ -8,10 +8,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./style.css">
     <title>Detalhes</title>
+
+    <style>
+        body {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #table_pessoas {
+            width: 90%;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Detalhe de cálculos da pessoa</h1>
+    <h1>Detalhe do cálculo da pessoa</h1>
 
     <table id="table_pessoas">
         <tr>
@@ -55,20 +68,20 @@
         headers: { 'Authorization': 'Bearer ' + token },
         success: function (response) { 
             html += '<tr class="table-row">' + 
-                '<td>' + response.id + '<td>' +
-                '<td>' + response.nome + '<td>' +
-                '<td>' + response.dataNascimento + '<td>' +
-                '<td>' + response.altura + '<td>' +
-                '<td>' + response.peso + '<td>' +
-                '<td>' + response.salario + '<td>' +
-                '<td>' + response.saldo + '<td>' +
-                '<td>' + response.idade + '<td>' +
-                '<td>' + response.imc + '<td>' +
-                '<td>' + response.classificacao + '<td>' +
-                '<td>' + response.inss + '<td>' +
-                '<td>' + response.aliquota + '<td>' +
-                '<td>' + response.salarioLiquido + '<td>' +
-                '<td>' + response.saldoDolar + '<td>' +
+                '<td>' + response.id + '</td>' +
+                '<td>' + response.nome + '</td>' +
+                '<td>' + response.dataNascimento + '</td>' +
+                '<td>' + response.altura + '</td>' +
+                '<td>' + response.peso + '</td>' +
+                '<td>' + response.salario + '</td>' +
+                '<td>' + response.saldo + '</td>' +
+                '<td>' + response.idade + '</td>' +
+                '<td>' + response.imc + '</td>' +
+                '<td>' + response.classificacao + '</td>' +
+                '<td>' + response.inss + '</td>' +
+                '<td>' + response.aliquota + '</td>' +
+                '<td>' + response.salarioLiquido + '</td>' +
+                '<td>' + response.saldoDolar + '</td>' +
                 '</tr>';
 
             $("#table_pessoas tr").first().after(html);
